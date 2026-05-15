@@ -1,7 +1,30 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)"
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npm uninstall *)",
+      "Bash(node -p \"require\\('./node_modules/lucide-react/package.json'\\).version\")",
+      "Bash(node -e \"const l = require\\('./node_modules/lucide-react'\\); console.log\\('exports:', Object.keys\\(l\\).slice\\(0,10\\)\\); console.log\\('has ArrowRight:', typeof l.ArrowRight\\);\")",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(lsof -ti:3001)",
+      "Bash(xargs -r kill -9)",
+      "Bash(node -e \"const l = require\\('./node_modules/lucide-react'\\); console.log\\('Handshake:', typeof l.Handshake, 'HandshakeIcon:', typeof l.HandshakeIcon, 'Award:', typeof l.Award\\);\")",
+      "Bash(tee /tmp/mkc-dev.log)",
+      "Bash(node -e \"\\(async\\(\\)=>{for\\(const p of ['/','/hakkimizda','/ulkeler','/global-haber','/sss','/iletisim','/basvur']\\){try{const r=await fetch\\('http://localhost:3000'+p\\);console.log\\(p,'->',r.status\\)}catch\\(e\\){console.log\\(p,'->',e.message\\)}}}\\)\\(\\);\")",
+      "Bash(lsof -ti:3000)",
+      "Read(//tmp/**)",
+      "Read(//private/tmp/**)",
+      "Bash(nohup npm run dev)",
+      "Bash(echo \"started PID $!\")",
+      "Bash(disown)",
+      "Bash(perl -i -pe 's/<motion\\\\.div\\\\b/<div/g; s/<\\\\/motion\\\\.div>/<\\\\/div>/g; s/\\\\s+initial=\\\\{[^}]*\\\\}//g; s/\\\\s+animate=\\\\{[^}]*\\\\}//g; s/\\\\s+whileInView=\\\\{[^}]*\\\\}//g; s/\\\\s+viewport=\\\\{[^}]*\\\\}//g; s/\\\\s+transition=\\\\{[^}]*\\\\}//g;' src/app/ulkeler/\\\\[slug\\\\]/page.tsx)",
+      "Bash(node -e \"\\(async\\(\\)=>{const paths=['/','/hakkimizda','/ulkeler','/ulkeler/abd','/ulkeler/kanada','/ulkeler/almanya','/global-haber','/sss','/iletisim','/basvur'];for\\(const p of paths\\){try{const r=await fetch\\('http://localhost:3000'+p\\);console.log\\(p.padEnd\\(28\\),'->',r.status\\)}catch\\(e\\){console.log\\(p.padEnd\\(28\\),'->',e.message\\)}}}\\)\\(\\);\")",
+      "Bash(node -e \"const l=require\\('./node_modules/lucide-react'\\);console.log\\(Object.keys\\(l\\).filter\\(k=>/instagram|linked/i.test\\(k\\)\\)\\);\")",
+      "Bash(lsof -ti:3000 -ti:3001)",
+      "Bash(pkill -9 -f \"next dev\")",
+      "Bash(pkill -9 -f \"next-server\")",
+      "Bash(rm -f /tmp/mkc-dev.log /tmp/mkc-dev.pid /tmp/resp.html)",
+      "Bash(rm -rf /private/tmp/claude-501/-Users-cgr-Desktop-mkc/*/tasks/*)"
     ]
   }
 }
