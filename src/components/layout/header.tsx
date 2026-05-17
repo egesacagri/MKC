@@ -40,7 +40,7 @@ export function Header() {
           : "bg-background/0 border-b border-transparent"
       )}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-14 flex items-center justify-between h-24 md:h-28">
+      <div className="relative mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-14 flex items-stretch justify-between h-24 md:h-28">
         <Link href="/" className="flex items-center group" aria-label="MKC Visa Anasayfa">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
@@ -50,7 +50,7 @@ export function Header() {
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-9">
+        <nav className="hidden lg:flex items-stretch gap-9">
           {navLinks.map((link) => {
             const isCountries = link.href === "/ulkeler";
             const active = isCountries
@@ -59,7 +59,7 @@ export function Header() {
 
             if (isCountries) {
               return (
-                <div key={link.href} className="relative group">
+                <div key={link.href} className="relative group self-stretch flex items-center">
                   <Link
                     href={link.href}
                     className={cn(
@@ -77,9 +77,9 @@ export function Header() {
                     )}
                   </Link>
 
-                  {/* Dropdown panel — pt-5 creates an invisible bridge so hover doesn't drop */}
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 w-[640px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 pointer-events-none group-hover:pointer-events-auto">
-                    <div className="bg-cream-50 border border-foreground/10 shadow-[0_24px_70px_rgba(0,0,0,0.10)] p-8">
+                  {/* Dropdown panel — positioned from header bottom */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 w-[640px] invisible group-hover:visible z-50 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="bg-background backdrop-blur-none border border-foreground/10 shadow-[0_16px_40px_rgba(10,8,4,0.08)] p-8">
                       <div className="grid grid-cols-3 gap-x-6 gap-y-3">
                         {countries.map((c) => (
                           <Link
@@ -118,7 +118,7 @@ export function Header() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "relative text-[13px] tracking-wide text-foreground/80 hover:text-foreground transition-colors",
+                  "relative flex items-center text-[13px] tracking-wide text-foreground/80 hover:text-foreground transition-colors",
                   active && "text-foreground"
                 )}
               >

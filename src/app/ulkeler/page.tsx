@@ -17,7 +17,10 @@ export const metadata: Metadata = {
 export default function UlkelerPage() {
   return (
     <>
-      <section className="pt-20 md:pt-28 pb-12 md:pb-16">
+      <section className="relative overflow-hidden pt-20 md:pt-28 pb-12 md:pb-16">
+        <div className="absolute inset-0 -z-10 noise opacity-30" />
+        <div className="absolute -top-32 -left-20 w-[480px] h-[480px] rounded-full bg-cream-200/25 blur-3xl -z-10" />
+        <div className="absolute -bottom-32 -right-20 w-[520px] h-[520px] rounded-full bg-cream-200/20 blur-3xl -z-10" />
         <Container>
           <SectionLabel>Çalıştığımız Ülkeler</SectionLabel>
           <h1 className="mt-5 font-serif text-5xl md:text-7xl lg:text-[88px] leading-[1.02] tracking-tight text-foreground max-w-4xl">

@@ -38,29 +38,38 @@ export default async function CountryPage({
   return (
     <>
       {/* HERO */}
-      <section className="pt-20 md:pt-32 pb-16 md:pb-24 bg-gradient-to-b from-slate-50 to-white">
+      <section className="relative overflow-hidden pt-20 md:pt-28 pb-16 md:pb-24">
+        <div className="absolute inset-0 -z-10 noise opacity-30" />
+        <div className="absolute -top-32 -left-20 w-[480px] h-[480px] rounded-full bg-cream-200/25 blur-3xl -z-10" />
+        <div className="absolute -bottom-32 -right-20 w-[520px] h-[520px] rounded-full bg-cream-200/20 blur-3xl -z-10" />
         <Container>
-          <div className="max-w-4xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm font-semibold text-slate-600 bg-white rounded-full border border-slate-200">
-              <Link href="/ulkeler" className="hover:text-blue-900 transition-colors">
+          <div className="max-w-5xl">
+            <div className="inline-flex items-center gap-2 mb-8 text-[11px] uppercase tracking-[0.22em] text-muted">
+              <Link href="/ulkeler" className="hover:text-foreground transition-colors">
                 Ülkeler
               </Link>
-              <span className="text-slate-300">/</span>
-              <span>{country.name}</span>
+              <span className="text-foreground/30">/</span>
+              <span className="text-foreground">{country.name}</span>
             </div>
 
-            <div className="flex items-start gap-4 mb-8">
-              <div className="text-7xl">{country.flag}</div>
+            <div className="flex items-start gap-6 mb-10">
+              <div className="text-6xl md:text-7xl leading-none">{country.flag}</div>
               <div className="flex-1">
-                <h1 className="font-serif text-5xl md:text-6xl font-bold text-slate-900 mb-3">
-                  {country.name} Vizesi
+                <div className="text-[10px] uppercase tracking-[0.22em] text-muted">
+                  {country.region}
+                </div>
+                <h1 className="mt-3 font-serif text-5xl md:text-7xl lg:text-[88px] leading-[1.02] tracking-tight text-foreground">
+                  {country.name}
+                  <span className="italic font-light"> vizesi</span>
                 </h1>
-                <p className="text-lg text-slate-600">{country.description}</p>
+                <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
+                  {country.description}
+                </p>
               </div>
             </div>
 
             {/* QUICK STATS */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-foreground/10 border border-foreground/10 mt-14">
               {[
                 { icon: Clock, label: "İşlem Süresi", value: country.processingTime },
                 { icon: DollarSign, label: "Vize Ücreti", value: country.fee },
@@ -69,17 +78,14 @@ export default async function CountryPage({
               ].map((stat, i) => {
                 const Icon = stat.icon;
                 return (
-                  <div
-                    key={i}
-                    className="bg-white rounded-lg border border-slate-200 p-4"
-                  >
-                    <div className="flex items-center gap-2 mb-2">
-                      <Icon className="w-5 h-5 text-blue-900" />
-                      <span className="text-xs font-semibold text-slate-500 uppercase">
+                  <div key={i} className="bg-background p-6">
+                    <div className="flex items-center gap-2 mb-3">
+                      <Icon className="w-4 h-4 text-foreground/70" />
+                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted">
                         {stat.label}
                       </span>
                     </div>
-                    <div className="font-bold text-slate-900 text-sm md:text-base">
+                    <div className="font-serif text-2xl md:text-3xl text-foreground tracking-tight">
                       {stat.value}
                     </div>
                   </div>
@@ -91,72 +97,66 @@ export default async function CountryPage({
       </section>
 
       {/* REQUIREMENTS */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 border-t border-foreground/10">
         <Container>
-          <div className="max-w-4xl">
-            <div className="mb-12">
+          <div className="max-w-5xl">
+            <div className="mb-14">
               <SectionLabel>Başvuru Şartları</SectionLabel>
-              <h2 className="mt-4 font-serif text-4xl md:text-5xl font-bold text-slate-900">
-                Gerekli Belgeler
+              <h2 className="mt-5 font-serif text-4xl md:text-5xl tracking-tight text-foreground">
+                Gerekli <span className="italic font-light">belgeler</span>
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              <div className="space-y-4">
-                {country.requirements
-                  .slice(0, Math.ceil(country.requirements.length / 2))
-                  .map((req, i) => (
-                    <div key={i} className="flex gap-4 items-start">
-                      <div className="mt-1 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                        <Check className="w-4 h-4 text-green-600" />
-                      </div>
-                      <div className="text-slate-700">{req}</div>
-                    </div>
-                  ))}
-              </div>
-
-              <div className="space-y-4">
-                {country.requirements
-                  .slice(Math.ceil(country.requirements.length / 2))
-                  .map((req, i) => (
-                    <div key={i} className="flex gap-4 items-start">
-                      <div className="mt-1 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center shrink-0">
-                        <Check className="w-4 h-4 text-green-600" />
-                      </div>
-                      <div className="text-slate-700">{req}</div>
-                    </div>
-                  ))}
-              </div>
+            <div className="grid md:grid-cols-2 gap-x-12 gap-y-1">
+              {country.requirements.map((req, i) => (
+                <div
+                  key={i}
+                  className="flex gap-4 items-start py-5 border-b border-foreground/10"
+                >
+                  <div className="mt-0.5 w-6 h-6 rounded-full border border-foreground/30 flex items-center justify-center shrink-0">
+                    <Check className="w-3.5 h-3.5 text-foreground/80" strokeWidth={2.5} />
+                  </div>
+                  <div className="text-foreground/85 leading-relaxed">{req}</div>
+                </div>
+              ))}
             </div>
           </div>
         </Container>
       </section>
 
       {/* TIMELINE & COMMON ISSUES */}
-      <section className="py-16 md:py-24 bg-slate-50">
+      <section className="py-20 md:py-28 border-t border-foreground/10">
         <Container>
-          <div className="grid md:grid-cols-2 gap-16 max-w-5xl">
+          <div className="grid md:grid-cols-2 gap-16 lg:gap-24 max-w-6xl">
             {/* Timeline */}
             <div>
               <SectionLabel>Zaman Çizelgesi</SectionLabel>
-              <h3 className="mt-4 font-serif text-2xl font-bold text-slate-900 mb-6">
-                {country.timeline}
+              <h3 className="mt-5 font-serif text-3xl md:text-4xl tracking-tight text-foreground mb-3">
+                Süreç akışı
               </h3>
+              <p className="text-muted mb-10">{country.timeline}</p>
 
-              <div className="space-y-4">
+              <div className="space-y-0">
                 {[
-                  { step: "1", title: "Ön Görüşme", desc: "Dosya hazırlığı planlaması" },
-                  { step: "2", title: "Belge Toplama", desc: "Gerekli tüm belgeler hazırlanır" },
-                  { step: "3", title: "Başvuru Yapılması", desc: "Resmi başvuru merkezi/online" },
-                  { step: "4", title: "Mülakat/İnceleme", desc: "Konsolosluk tarafından değerlendirme" },
+                  { step: "01", title: "Ön Görüşme", desc: "Dosya hazırlığı planlaması" },
+                  { step: "02", title: "Belge Toplama", desc: "Gerekli tüm belgeler hazırlanır" },
+                  { step: "03", title: "Başvuru Yapılması", desc: "Resmi başvuru merkezi/online" },
+                  { step: "04", title: "Mülakat/İnceleme", desc: "Konsolosluk tarafından değerlendirme" },
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 items-start">
-                    <div className="w-10 h-10 rounded-full bg-blue-900 text-white flex items-center justify-center font-bold shrink-0">
+                  <div
+                    key={i}
+                    className="flex gap-6 items-start py-6 border-t border-foreground/10 last:border-b"
+                  >
+                    <div className="font-serif text-2xl text-muted/60 shrink-0 w-12">
                       {item.step}
                     </div>
-                    <div className="pt-1">
-                      <div className="font-semibold text-slate-900">{item.title}</div>
-                      <div className="text-sm text-slate-600">{item.desc}</div>
+                    <div>
+                      <div className="font-serif text-xl text-foreground tracking-tight">
+                        {item.title}
+                      </div>
+                      <div className="text-sm text-muted mt-1 leading-relaxed">
+                        {item.desc}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -166,22 +166,32 @@ export default async function CountryPage({
             {/* Common Issues */}
             <div>
               <SectionLabel>Yaygın Sorunlar</SectionLabel>
-              <h3 className="mt-4 font-serif text-2xl font-bold text-slate-900 mb-6">
-                Dikkat Edilecekler
+              <h3 className="mt-5 font-serif text-3xl md:text-4xl tracking-tight text-foreground mb-3">
+                Dikkat <span className="italic font-light">edilecekler</span>
               </h3>
+              <p className="text-muted mb-10">En sık karşılaşılan başvuru engelleri</p>
 
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {country.commonIssues.map((issue, i) => (
                   <div
                     key={i}
-                    className="bg-white p-4 rounded-lg border-l-4 border-red-500"
+                    className="bg-background p-5 border-l-2 border-foreground/60 border-t border-r border-b border-foreground/10"
                   >
-                    <div className="font-semibold text-slate-900">{issue}</div>
-                    <div className="text-xs text-slate-500 mt-1">
-                      {i === 0 && "Bu sorun başvuruların %30'unda görülür"}
-                      {i === 1 && "Başvuru öncesi mutlaka kontrol edin"}
-                      {i === 2 && "En sık red sebeblerinden biri"}
-                      {i === 3 && "Tüm bilgilerin tutarlı olması önemli"}
+                    <div className="flex items-baseline gap-3">
+                      <span className="font-serif text-sm text-muted/70 shrink-0">
+                        {String(i + 1).padStart(2, "0")}
+                      </span>
+                      <div>
+                        <div className="font-medium text-foreground leading-snug">
+                          {issue}
+                        </div>
+                        <div className="text-xs text-muted mt-1.5 leading-relaxed">
+                          {i === 0 && "Bu sorun başvuruların %30'unda görülür"}
+                          {i === 1 && "Başvuru öncesi mutlaka kontrol edin"}
+                          {i === 2 && "En sık red sebeplerinden biri"}
+                          {i === 3 && "Tüm bilgilerin tutarlı olması önemli"}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -192,39 +202,46 @@ export default async function CountryPage({
       </section>
 
       {/* CONSULATE INFO */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 border-t border-foreground/10">
         <Container>
-          <div className="max-w-2xl">
-            <SectionLabel>Konsolosluk Bilgileri</SectionLabel>
-            <h2 className="mt-4 font-serif text-4xl font-bold text-slate-900 mb-8">
-              {country.consultateCity} Konsolosluğu
-            </h2>
+          <div className="max-w-5xl grid md:grid-cols-5 gap-12 lg:gap-16">
+            <div className="md:col-span-2">
+              <SectionLabel>Konsolosluk Bilgileri</SectionLabel>
+              <h2 className="mt-5 font-serif text-4xl md:text-5xl tracking-tight text-foreground">
+                {country.consultateCity}
+                <br />
+                <span className="italic font-light">konsolosluğu</span>
+              </h2>
+            </div>
 
-            <div className="bg-slate-50 p-8 rounded-2xl border border-slate-200">
-              <div className="space-y-6">
-                <div>
-                  <div className="text-sm font-semibold text-slate-500 uppercase mb-2">
-                    Adres
-                  </div>
-                  <div className="flex gap-3 items-start">
-                    <MapPin className="w-5 h-5 text-blue-900 mt-0.5 shrink-0" />
-                    <div className="text-slate-700">{country.consultateAddress}</div>
+            <div className="md:col-span-3 space-y-8">
+              <div className="pb-8 border-b border-foreground/10">
+                <div className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3">
+                  Adres
+                </div>
+                <div className="flex gap-3 items-start">
+                  <MapPin className="w-5 h-5 text-foreground/70 mt-0.5 shrink-0" />
+                  <div className="text-foreground/85 leading-relaxed">
+                    {country.consultateAddress}
                   </div>
                 </div>
+              </div>
 
-                <div className="border-t border-slate-200 pt-6">
-                  <div className="text-sm font-semibold text-slate-500 uppercase mb-3">
-                    Vize Tipleri
-                  </div>
-                  <div className="space-y-2">
-                    {country.visaTypes.map((type, i) => (
-                      <div key={i} className="flex items-center gap-3 text-slate-700">
-                        <span className="w-2 h-2 rounded-full bg-blue-900" />
-                        {type}
-                      </div>
-                    ))}
-                  </div>
+              <div>
+                <div className="text-[10px] uppercase tracking-[0.22em] text-muted mb-4">
+                  Vize Tipleri
                 </div>
+                <ul className="space-y-3">
+                  {country.visaTypes.map((type, i) => (
+                    <li
+                      key={i}
+                      className="flex items-center gap-3 text-foreground/85"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-foreground/40" />
+                      {type}
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </div>
@@ -232,20 +249,24 @@ export default async function CountryPage({
       </section>
 
       {/* CTA SECTION */}
-      <section className="py-16 md:py-24 bg-gradient-to-b from-slate-50 to-white">
+      <section className="py-20 md:py-28 border-t border-foreground/10">
         <Container>
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 mb-6">
-              {country.name} Vizesi için <br />
-              <span className="text-blue-900">Uzman Danışmanlık</span>
+            <SectionLabel>
+              <span className="mx-auto">Sıradaki adım</span>
+            </SectionLabel>
+            <h2 className="mt-6 font-serif text-4xl md:text-6xl leading-[1.05] tracking-tight text-foreground">
+              {country.name} vizesi için
+              <br />
+              <span className="italic font-light">uzman danışmanlık</span>
             </h2>
 
-            <p className="text-lg text-slate-600 mb-8">
+            <p className="mt-8 text-lg text-muted leading-relaxed">
               Binlerce başvurucunun başarıyla ülkeye gitmesini sağladık. Sizin de
               başarı hikayenizin bir parçası olmak istiyoruz.
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
               <Button href="/basvur" size="lg" className="w-full sm:w-auto">
                 Başvuru Yap
               </Button>
