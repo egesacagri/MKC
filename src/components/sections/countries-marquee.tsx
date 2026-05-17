@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import { countries } from "@/lib/data";
+import { turkishNumberWord } from "@/lib/utils";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 
@@ -18,7 +19,7 @@ export function CountriesMarquee() {
           <div className="max-w-2xl">
             <SectionLabel>Çalıştığımız Ülkeler</SectionLabel>
             <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl text-foreground tracking-tight">
-              Yedi ülke, sınırsız <span className="italic font-light">olasılık</span>.
+              {turkishNumberWord(countries.length)} ülke, sınırsız <span className="italic font-light">olasılık</span>.
             </h2>
           </div>
           <Link
@@ -32,7 +33,7 @@ export function CountriesMarquee() {
       </Container>
 
       {/* Marquee */}
-      <div className="relative overflow-hidden mask-fade">
+      <div className="relative overflow-hidden mask-fade py-3 -my-3">
         <div className="flex w-max animate-marquee">
           {loop.map((c, i) => (
             <Link
@@ -66,10 +67,7 @@ export function CountriesMarquee() {
               href={`/ulkeler#${c.slug}`}
               className="group block"
             >
-              <div className="text-[10px] uppercase tracking-[0.22em] text-muted">
-                {c.region}
-              </div>
-              <div className="mt-2 font-serif text-3xl text-foreground group-hover:translate-x-1 transition-transform duration-300">
+              <div className="font-serif text-3xl text-foreground group-hover:translate-x-1 transition-transform duration-300">
                 {c.name}
               </div>
               <div className="mt-3 h-px bg-foreground/15 group-hover:bg-foreground transition-colors duration-300" />

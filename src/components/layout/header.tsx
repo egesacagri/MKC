@@ -1,10 +1,12 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { countries } from "@/lib/data";
 
 const navLinks = [
   { href: "/hakkimizda", label: "Hakkımızda" },
@@ -39,19 +41,81 @@ export function Header() {
           : "bg-background/0 border-b border-transparent"
       )}
     >
-      <div className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-14 flex items-center justify-between h-20 md:h-24">
-        <Link href="/" className="flex items-center gap-2 group" aria-label="MKC Visa Anasayfa">
-          <span className="font-serif text-2xl md:text-[28px] tracking-tight text-foreground">
-            MKC
-          </span>
-          <span className="text-[10px] uppercase tracking-[0.32em] text-muted mt-1 hidden sm:inline">
-            Visa
-          </span>
+      <div className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-14 flex items-center justify-between h-24 md:h-28">
+        <Link href="/" className="flex items-center group" aria-label="MKC Visa Anasayfa">
+          <Image
+            src="/logo.svg"
+            alt="MKC Visa"
+            width={112}
+            height={112}
+            priority
+            className="h-20 md:h-24 w-auto object-contain"
+          />
         </Link>
 
         <nav className="hidden lg:flex items-center gap-9">
           {navLinks.map((link) => {
-            const active = pathname === link.href;
+            const isCountries = link.href === "/ulkeler";
+            const active = isCountries
+              ? pathname === link.href || pathname.startsWith("/ulkeler/")
+              : pathname === link.href;
+
+            if (isCountries) {
+              return (
+                <div key={link.href} className="relative group">
+                  <Link
+                    href={link.href}
+                    className={cn(
+                      "relative inline-flex items-center gap-1 text-[13px] tracking-wide text-foreground/80 hover:text-foreground transition-colors",
+                      active && "text-foreground"
+                    )}
+                  >
+                    {link.label}
+                    <ChevronDown
+                      className="w-3.5 h-3.5 transition-transform duration-300 group-hover:rotate-180"
+                      aria-hidden
+                    />
+                    {active && (
+                      <span className="absolute -bottom-1.5 left-0 right-4 h-px bg-foreground" />
+                    )}
+                  </Link>
+
+                  {/* Dropdown panel — pt-5 creates an invisible bridge so hover doesn't drop */}
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 w-[640px] opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-300 ease-out z-50 pointer-events-none group-hover:pointer-events-auto">
+                    <div className="bg-cream-50 border border-foreground/10 shadow-[0_24px_70px_rgba(0,0,0,0.10)] p-8">
+                      <div className="grid grid-cols-3 gap-x-6 gap-y-3">
+                        {countries.map((c) => (
+                          <Link
+                            key={c.slug}
+                            href={`/ulkeler/${c.slug}`}
+                            className="group/item flex items-center gap-3 py-1.5 text-sm text-foreground/80 hover:text-foreground transition-colors"
+                          >
+                            <span className="text-base leading-none" aria-hidden>
+                              {c.flag}
+                            </span>
+                            <span className="font-serif text-[15px] tracking-tight">
+                              {c.name}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="mt-6 pt-5 border-t border-foreground/10 flex items-center justify-between">
+                        <span className="text-[10px] uppercase tracking-[0.22em] text-muted">
+                          {countries.length} ülke · sürekli güncellenir
+                        </span>
+                        <Link
+                          href="/ulkeler"
+                          className="text-[11px] uppercase tracking-[0.18em] text-foreground hover:opacity-70 transition-opacity"
+                        >
+                          Tümünü Gör →
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              );
+            }
+
             return (
               <Link
                 key={link.href}

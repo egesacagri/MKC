@@ -9,17 +9,17 @@ const pillars = [
   {
     icon: Zap,
     title: "Hızlı Süreç",
-    desc: "Başvurularınızı 48 saat içinde inceler, randevu ve dosya hazırlığında zamanı sizin lehinize çeviririz.",
+    desc: "Başvurularınızı 48 saat içinde inceliyor, randevu ve dosya hazırlığında zamanı sizin lehinize çeviriyoruz.",
   },
   {
     icon: Eye,
     title: "Şeffaf Danışmanlık",
-    desc: "Süreç boyunca tek bir muhatabınız var. Her adımı, her ücreti ve her olası riski net şekilde paylaşırız.",
+    desc: "Her adımı, her ücreti ve her olası riski net şekilde paylaşıyoruz.",
   },
   {
     icon: Trophy,
     title: "Yüksek Başarı Oranı",
-    desc: "2.500'ü aşkın başvuru deneyimi ve %97 onay oranıyla, dosyanızın güçlü yönlerini öne çıkarırız.",
+    desc: "2.500'ü aşkın başvuru deneyimi ve %97 onay oranıyla, dosyanızın güçlü yönlerini öne çıkarıyoruz.",
   },
 ];
 
@@ -28,7 +28,7 @@ export function WhyUs() {
     <section className="py-24 md:py-32">
       <Container>
         <div className="max-w-2xl">
-          <SectionLabel>Neden MKC Visa</SectionLabel>
+          <SectionLabel>Neden MKC</SectionLabel>
           <h2 className="mt-4 font-serif text-4xl md:text-5xl lg:text-6xl text-foreground tracking-tight">
             Üç temel ilke,
             <br />

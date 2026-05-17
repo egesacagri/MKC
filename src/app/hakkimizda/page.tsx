@@ -3,6 +3,10 @@ import { Globe, Compass, HandshakeIcon, Award } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { SectionLabel } from "@/components/ui/section-label";
 import { CTA } from "@/components/sections/cta";
+import { countries } from "@/lib/data";
+import { turkishNumberWord } from "@/lib/utils";
+
+const countryWord = turkishNumberWord(countries.length).toLowerCase();
 
 export const metadata: Metadata = {
   title: "Hakkımızda",
@@ -11,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const values = [
-  { icon: Globe, title: "Global Bakış", desc: "Yedi ülkede aktif partner ağı ile güncel mevzuata anlık erişim." },
+  { icon: Globe, title: "Global Bakış", desc: `${countryWord.charAt(0).toUpperCase() + countryWord.slice(1)} ülkede aktif partner ağı ile güncel mevzuata anlık erişim.` },
   { icon: Compass, title: "Stratejik Rehberlik", desc: "Her başvuruyu kişisel hikâye olarak ele alır, ona özel yol haritası çıkarırız." },
   { icon: HandshakeIcon, title: "Güvene Dayalı İlişki", desc: "Tek muhatap, açık iletişim ve net taahhütler — sürpriz yok." },
   { icon: Award, title: "Kanıtlanmış Başarı", desc: "%97 onay oranı ve 2.500'ü aşkın tamamlanmış dosya deneyimi." },

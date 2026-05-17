@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -26,9 +27,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-10">
           {/* Brand */}
           <div className="md:col-span-4">
-            <Link href="/" className="flex items-baseline gap-2">
-              <span className="font-serif text-3xl text-foreground">MKC</span>
-              <span className="text-[10px] uppercase tracking-[0.32em] text-muted">Visa</span>
+            <Link href="/" className="block leading-none -translate-y-[60px]" aria-label="MKC Visa Anasayfa">
+              <Image
+                src="/logo.svg"
+                alt="MKC Visa"
+                width={304}
+                height={304}
+                className="h-[19rem] w-auto object-contain"
+              />
             </Link>
             <p className="mt-5 text-sm text-muted leading-relaxed max-w-xs">
               Global sınırları birlikte aşıyoruz. ABD, Kanada, İngiltere ve Avrupa için

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, Compass } from "lucide-react";
 import Link from "next/link";
 import { Container } from "@/components/ui/container";
+import { countries } from "@/lib/data";
 
 export function Hero() {
   return (
@@ -16,16 +17,6 @@ export function Hero() {
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end">
           <div className="lg:col-span-8">
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-              className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-muted mb-8"
-            >
-              <span className="h-px w-10 bg-foreground/40" />
-              <span>Vize Danışmanlığı · 2026</span>
-            </motion.div>
-
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -78,7 +69,7 @@ export function Hero() {
             className="lg:col-span-4 lg:pl-8 lg:border-l lg:border-foreground/15 flex flex-col gap-8"
           >
             <Stat value="%97" label="Onay Başarı Oranı" />
-            <Stat value="7" label="Ülke ve Bölge" />
+            <Stat value={String(countries.length)} label="Ülke ve Bölge" />
             <Stat value="2.500+" label="Tamamlanmış Başvuru" />
           </motion.div>
         </div>
