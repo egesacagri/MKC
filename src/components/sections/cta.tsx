@@ -22,7 +22,7 @@ export function CTA() {
           <div className="relative max-w-3xl">
             <div className="flex items-center gap-3 text-[11px] uppercase tracking-[0.22em] text-cream-100/60 mb-6">
               <span className="h-px w-10 bg-cream-100/40" />
-              <span>Sıradaki Adım</span>
+              <span>Başvuru Adımı</span>
             </div>
             <h2 className="font-serif text-4xl md:text-6xl lg:text-7xl leading-[1.05] tracking-tight">
               Vize sürecinizi <br />

@@ -9,13 +9,6 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect x="2" y="9" width="4" height="12" />
-    <circle cx="4" cy="4" r="2" />
-  </svg>
-);
 import { Container } from "@/components/ui/container";
 import { countries } from "@/lib/data";
 
@@ -40,7 +33,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-4 mt-6">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/mkcvize/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Instagram"
@@ -49,13 +42,11 @@ export function Footer() {
                 <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
+                href="mailto:mkcvize@gmail.com"
+                aria-label="E-posta"
                 className="text-muted hover:text-foreground transition-colors"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <Mail className="w-4 h-4" />
               </a>
             </div>
           </div>
@@ -98,18 +89,18 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-muted">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 mt-0.5 shrink-0" />
-                <span>Levent Mah. Büyükdere Cad. No: 142, Şişli, İstanbul</span>
+                <span>Ankara</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="w-4 h-4 shrink-0" />
-                <a href="tel:+902120000000" className="hover:text-foreground transition-colors">
-                  +90 (212) 000 00 00
+                <a href="tel:+905320000000" className="hover:text-foreground transition-colors">
+                  +90 532 000 0000
                 </a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 shrink-0" />
-                <a href="mailto:info@mkcvisa.com" className="hover:text-foreground transition-colors">
-                  info@mkcvisa.com
+                <a href="mailto:mkcvize@gmail.com" className="hover:text-foreground transition-colors">
+                  mkcvize@gmail.com
                 </a>
               </li>
             </ul>
@@ -119,9 +110,9 @@ export function Footer() {
         <div className="mt-14 pt-6 border-t border-foreground/10 flex flex-col md:flex-row gap-4 md:items-center md:justify-between text-xs text-muted">
           <p>© {new Date().getFullYear()} MKC Visa. Tüm hakları saklıdır.</p>
           <div className="flex items-center gap-6">
-            <Link href="/sss" className="hover:text-foreground transition-colors">Gizlilik Politikası</Link>
-            <Link href="/sss" className="hover:text-foreground transition-colors">Kullanım Koşulları</Link>
-            <Link href="/iletisim" className="hover:text-foreground transition-colors">KVKK</Link>
+            <Link href="/gizlilik-politikasi" className="hover:text-foreground transition-colors">Gizlilik Politikası</Link>
+            <Link href="/kullanim-kosullari" className="hover:text-foreground transition-colors">Kullanım Koşulları</Link>
+            <Link href="/kvkk" className="hover:text-foreground transition-colors">KVKK</Link>
           </div>
         </div>
       </Container>

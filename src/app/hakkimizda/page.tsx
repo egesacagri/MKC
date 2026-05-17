@@ -35,11 +35,11 @@ export default function HakkimizdaPage() {
                 <br />
                 <span className="italic font-light">güvenilir </span>bir partner.
               </h1>
-              <p className="mt-8 text-lg md:text-xl text-muted leading-relaxed">
-                MKC Visa; ABD, Kanada, İngiltere ve Avrupa için bireysel ve kurumsal
+              <p className="mt-16 text-lg md:text-xl text-muted leading-relaxed text-justify">
+                MKC; Amerika, Kanada, İngiltere ve Avrupa için bireysel ve kurumsal
                 başvuruları yöneten, uçtan uca vize danışmanlığı sunan butik bir ofis.
                 Sayılarla değil, hikâyelerle çalışıyoruz: her dosyayı sizin hayatınızın
-                gerçek bir bölümü olarak ele alıyoruz.
+                gerçek bir bölümü olarak ele alıyor, başvuru sürecinizi sizin hikayenize göre kurguluyoruz.
               </p>
             </div>
 
@@ -50,7 +50,7 @@ export default function HakkimizdaPage() {
                 <div className="absolute inset-0 noise opacity-20" />
                 <div className="absolute bottom-8 left-8 right-8 text-cream-100">
                   <div className="text-[10px] uppercase tracking-[0.22em] text-cream-100/60">
-                    Est. 2018 — İstanbul
+                    Est. 2021 — Ankara
                   </div>
                   <div className="mt-3 font-serif text-3xl md:text-4xl leading-tight">
                     Her başvuru, yeni bir başlangıçtır.
@@ -71,7 +71,7 @@ export default function HakkimizdaPage() {
               <h2 className="mt-5 font-serif text-3xl md:text-5xl tracking-tight text-foreground">
                 Karmaşık olanı sadeleştirmek.
               </h2>
-              <p className="mt-6 text-muted leading-relaxed text-lg">
+              <p className="mt-6 text-muted leading-relaxed text-lg text-justify">
                 Vize süreçleri çoğu kişi için belirsizliklerle dolu bir labirenttir.
                 Biz bu süreci ayrıştırılabilir adımlara böler, müşterilerimize her
                 aşamada nerede olduğunu net şekilde gösteririz.
@@ -82,7 +82,7 @@ export default function HakkimizdaPage() {
               <h2 className="mt-5 font-serif text-3xl md:text-5xl tracking-tight text-foreground">
                 Sınırı engel olmaktan çıkarmak.
               </h2>
-              <p className="mt-6 text-muted leading-relaxed text-lg">
+              <p className="mt-6 text-muted leading-relaxed text-lg text-justify">
                 Hedefimiz; Türkiye'den dünyaya açılmak isteyen profesyoneller,
                 öğrenciler ve aileler için başvuru sürecinin endişe değil, beklenen
                 bir başarıya dönüşmesini sağlamak.
@@ -95,12 +95,10 @@ export default function HakkimizdaPage() {
       {/* Values */}
       <section className="py-24 md:py-32">
         <Container>
-          <div className="max-w-2xl mb-16">
+          <div className="max-w-4xl mb-16">
             <SectionLabel>İlkelerimiz</SectionLabel>
             <h2 className="mt-5 font-serif text-4xl md:text-5xl tracking-tight text-foreground">
-              Çalışma şeklimizi
-              <br />
-              <span className="italic font-light">tanımlayan dört değer</span>.
+              Çalışma şeklimizi <span className="italic font-light">tanımlayan dört değer</span>.
             </h2>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-foreground/10 border border-foreground/10">

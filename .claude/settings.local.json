@@ -24,7 +24,34 @@
       "Bash(pkill -9 -f \"next dev\")",
       "Bash(pkill -9 -f \"next-server\")",
       "Bash(rm -f /tmp/mkc-dev.log /tmp/mkc-dev.pid /tmp/resp.html)",
-      "Bash(rm -rf /private/tmp/claude-501/-Users-cgr-Desktop-mkc/*/tasks/*)"
+      "Bash(rm -rf /private/tmp/claude-501/-Users-cgr-Desktop-mkc/*/tasks/*)",
+      "Bash(git commit -m ' *)",
+      "Bash(gh repo *)",
+      "Bash(gh api *)",
+      "Bash(gh run *)",
+      "Bash(node -e \"\\(async\\(\\)=>{for\\(const p of ['/MKC/','/MKC/ulkeler/','/MKC/ulkeler/abd/','/MKC/basvur/','/MKC/sss/']\\){const r=await fetch\\('https://egesacagri.github.io'+p,{redirect:'follow'}\\);console.log\\(p,'->',r.status\\)}}\\)\\(\\);\")",
+      "Bash(cp /Users/cgr/Desktop/mkc/public/logo.svg /Users/cgr/Desktop/mkc/src/app/icon.svg)",
+      "Bash(rm /Users/cgr/Desktop/mkc/src/app/favicon.ico)",
+      "Bash(git -C /Users/cgr/Desktop/mkc add src/app/hakkimizda/page.tsx src/app/ulkeler/page.tsx src/components/layout/footer.tsx src/components/layout/header.tsx src/components/sections/countries-marquee.tsx src/components/sections/hero.tsx src/components/sections/why-us.tsx src/lib/data.ts src/lib/utils.ts public/logo.svg src/app/icon.svg)",
+      "Bash(git -C /Users/cgr/Desktop/mkc diff --cached --stat)",
+      "Bash(git -C /Users/cgr/Desktop/mkc commit -m ' *)",
+      "Bash(git -C /Users/cgr/Desktop/mkc push origin main)",
+      "Bash(git -C /Users/cgr/Desktop/mkc status public/logo.svg src/app/icon.svg)",
+      "Bash(git -C /Users/cgr/Desktop/mkc log --oneline --follow -- public/logo.svg)",
+      "Bash(git -C /Users/cgr/Desktop/mkc show --stat HEAD)",
+      "Bash(git -C /Users/cgr/Desktop/mkc ls-remote origin HEAD)",
+      "Bash(python3 -c ' *)",
+      "Bash(git -C /Users/cgr/Desktop/mkc add public/logo.svg)",
+      "Bash(node -e \"const isProd = process.env.NODE_ENV === 'production'; console.log\\('isProd:', isProd, 'NODE_ENV:', process.env.NODE_ENV\\)\")",
+      "Bash(NODE_ENV=production node -e \"const isProd = process.env.NODE_ENV === 'production'; console.log\\('isProd:', isProd\\)\")",
+      "Bash(git -C /Users/cgr/Desktop/mkc add next.config.ts src/components/layout/header.tsx src/components/layout/footer.tsx)",
+      "Bash(mkdir -p /Users/cgr/Desktop/mkc/src/app/kvkk /Users/cgr/Desktop/mkc/src/app/gizlilik-politikasi /Users/cgr/Desktop/mkc/src/app/kullanim-kosullari)",
+      "Bash(npx eslint *)",
+      "Bash(git add *)",
+      "Bash(git push *)"
+    ],
+    "additionalDirectories": [
+      "/Users/cgr/Desktop/mkc/src/app"
     ]
   }
 }

@@ -7,13 +7,13 @@ import { ContactForm } from "@/components/sections/contact-form";
 export const metadata: Metadata = {
   title: "İletişim",
   description:
-    "MKC Visa ile iletişime geçin. Levent, İstanbul ofisimiz veya online görüşme ile vize süreciniz hakkında ücretsiz danışmanlık alın.",
+    "MKC Visa ile iletişime geçin. Ankara ofisimiz veya online görüşme ile vize süreciniz hakkında ücretsiz danışmanlık alın.",
 };
 
 const items = [
-  { icon: MapPin, label: "Ofis", value: "Levent Mah. Büyükdere Cad. No: 142, Şişli, İstanbul" },
-  { icon: Phone, label: "Telefon", value: "+90 (212) 000 00 00", href: "tel:+902120000000" },
-  { icon: Mail, label: "E-posta", value: "info@mkcvisa.com", href: "mailto:info@mkcvisa.com" },
+  { icon: MapPin, label: "Ofis", value: "Ankara" },
+  { icon: Phone, label: "Telefon", value: "+90 532 000 0000", href: "tel:+905320000000" },
+  { icon: Mail, label: "E-posta", value: "mkcvize@gmail.com", href: "mailto:mkcvize@gmail.com" },
   { icon: Clock, label: "Çalışma Saatleri", value: "Pzt – Cum, 09:00 – 18:00" },
 ];
 
