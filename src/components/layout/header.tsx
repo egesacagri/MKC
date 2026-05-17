@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -43,12 +42,10 @@ export function Header() {
     >
       <div className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-14 flex items-center justify-between h-24 md:h-28">
         <Link href="/" className="flex items-center group" aria-label="MKC Visa Anasayfa">
-          <Image
-            src="/logo.svg"
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo.svg`}
             alt="MKC Visa"
-            width={112}
-            height={112}
-            priority
             className="h-20 md:h-24 w-auto object-contain"
           />
         </Link>

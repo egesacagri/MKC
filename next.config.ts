@@ -10,6 +10,9 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? `/${repoName}/` : "",
   trailingSlash: true,
   images: { unoptimized: true },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? `/${repoName}` : "",
+  },
   turbopack: {
     root: path.join(__dirname),
   },

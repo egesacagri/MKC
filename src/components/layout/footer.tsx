@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -28,11 +27,10 @@ export function Footer() {
           {/* Brand */}
           <div className="md:col-span-4">
             <Link href="/" className="block leading-none -translate-y-[60px]" aria-label="MKC Visa Anasayfa">
-              <Image
-                src="/logo.svg"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/logo.svg`}
                 alt="MKC Visa"
-                width={304}
-                height={304}
                 className="h-[19rem] w-auto object-contain"
               />
             </Link>
