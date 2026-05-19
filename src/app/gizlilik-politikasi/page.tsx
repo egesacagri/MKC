@@ -59,7 +59,7 @@ export default function GizlilikPolitikasiPage() {
               </li>
               <li>
                 <strong>E-posta:</strong>{" "}
-                <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a>
+                <a href="mailto:info@mkcvize.com">info@mkcvize.com</a>
               </li>
               <li>
                 <strong>Telefon:</strong>{" "}
@@ -235,7 +235,7 @@ export default function GizlilikPolitikasiPage() {
               kullanabileceğinizi öğrenmek için{" "}
               <a href="/kvkk">KVKK Aydınlatma Metni</a> sayfamızı inceleyiniz.
               Talepleriniz için{" "}
-              <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a> adresine
+              <a href="mailto:info@mkcvize.com">info@mkcvize.com</a> adresine
               başvurabilirsiniz.
             </p>
 
@@ -257,7 +257,7 @@ export default function GizlilikPolitikasiPage() {
               iletiler gönderilebilir. Rızanızı her zaman ücretsiz olarak,
               hiçbir gerekçe bildirmeksizin geri alabilirsiniz; bunun için
               iletinin altındaki red mekanizmasını kullanabilir veya{" "}
-              <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a> adresine
+              <a href="mailto:info@mkcvize.com">info@mkcvize.com</a> adresine
               talebinizi iletebilirsiniz. İYS (İleti Yönetim Sistemi) üzerinden
               de tercihlerinizi yönetebilirsiniz.
             </p>
@@ -283,7 +283,7 @@ export default function GizlilikPolitikasiPage() {
             <p>
               Gizlilik Politikası&apos;na ilişkin her türlü soru, talep ve
               şikâyet için bizimle iletişime geçebilirsiniz:{" "}
-              <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a>.
+              <a href="mailto:info@mkcvize.com">info@mkcvize.com</a>.
             </p>
 
             <p className="signature">

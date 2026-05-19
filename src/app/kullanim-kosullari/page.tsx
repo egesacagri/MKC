@@ -62,7 +62,7 @@ export default function KullanimKosullariPage() {
               </li>
               <li>
                 <strong>E-posta:</strong>{" "}
-                <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a>
+                <a href="mailto:info@mkcvize.com">info@mkcvize.com</a>
               </li>
               <li>
                 <strong>Telefon:</strong>{" "}
@@ -282,7 +282,7 @@ export default function KullanimKosullariPage() {
             <p>
               Kullanım Koşulları hakkındaki soru ve talepleriniz için bizimle
               iletişime geçebilirsiniz:{" "}
-              <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a>.
+              <a href="mailto:info@mkcvize.com">info@mkcvize.com</a>.
             </p>
 
             <p className="signature">

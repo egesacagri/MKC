@@ -42,7 +42,7 @@ export function Footer() {
                 <InstagramIcon className="w-4 h-4" />
               </a>
               <a
-                href="mailto:mkcvize@gmail.com"
+                href="mailto:info@mkcvize.com"
                 aria-label="E-posta"
                 className="text-muted hover:text-foreground transition-colors"
               >
@@ -99,8 +99,8 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="w-4 h-4 shrink-0" />
-                <a href="mailto:mkcvize@gmail.com" className="hover:text-foreground transition-colors">
-                  mkcvize@gmail.com
+                <a href="mailto:info@mkcvize.com" className="hover:text-foreground transition-colors">
+                  info@mkcvize.com
                 </a>
               </li>
             </ul>

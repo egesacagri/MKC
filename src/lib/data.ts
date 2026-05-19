@@ -15,11 +15,14 @@ export type Country = {
   processingTime: string;
   consultateCity: string;
   consultateAddress: string;
+  consultateLabel?: string;
   requirements: string[];
   timeline: string;
   fee: string;
+  studentFee?: string;
   successRate: string;
   commonIssues: string[];
+  nonItalicVize?: boolean;
   details?: Record<string, string>;
 };
 
@@ -28,31 +31,34 @@ export const countries: Country[] = [
     slug: "ingiltere",
     name: "İngiltere",
     code: "GB",
-    region: "Avrupa",
+    region: "",
     flag: "🇬🇧",
     visaTypes: ["Standard Visitor", "Student", "Skilled Worker"],
     blurb: "Köklü üniversiteler ve global finans merkezine direkt geçiş.",
-    description: "İngiltere vizesi için BRP kartı ve Immigration Health Surcharge ödemesi gereklidir.",
-    processingTime: "2-4 hafta",
-    consultateCity: "İstanbul",
+    description: "İngiltere için vize randevu alımında vize harç ücreti ödenmelidir.",
+    processingTime: "3-4 hafta",
+    consultateCity: "Vfs Global UK",
+    consultateLabel: "Vize İşlem Merkezi",
     consultateAddress: "İngiltere Başkonsolosu, Meşrutiyet Cd. 34, 34430 Beyoğlu, İstanbul",
-    timeline: "Visa aplikasyon merkezine başvurudan 15-30 gün içinde karar",
-    fee: "£108 (turist), £478 (öğrenci)",
-    successRate: "%95",
+    timeline: "Vize merkezine başvurudan 15 iş günü ila 20 iş günü arasında sonuçlanır.",
+    fee: "6 Ay|188$\n2 Yıl|704$\n5 Yıl|1.256$\n10 Yıl|1.569$",
+    studentFee: "Kısa dönem|317$\nUzun dönem|776$",
+    successRate: "%97",
+    nonItalicVize: true,
     requirements: [
-      "Geçerli pasaport (minimum 6 ay)",
-      "Immigration Health Surcharge (£284/yıl öğrenci)",
-      "Banka ekstresi",
-      "İletişim adı ve adresi",
-      "Tıbbi sigorta (Travel Insurance)",
-      "Davet veya kabul belgesi",
-      "Noter tasdikli belgeler",
+      "Geçerli pasaport (seyahat tarihinden itibaren geçerli en az 6 aylık)",
+      "Immigration Health Surcharge (Öğrenciler için zorunlu ödenir.)",
+      "Kimlik belgesi",
+      "Okul belgeleri",
+      "Mali belgeler",
+      "İş belgeleri (Emekli, Kamu, Özel Sektör)",
+      "Sponsor belgeleri",
     ],
     commonIssues: [
-      "IHS ödemesi eksik",
-      "Pasaport sayfaları boş",
-      "Mali belgeler yetersiz",
-      "Tutarsız başvuru bilgileri",
+      "Ülkeye dönüşü belirtmemek",
+      "Pasaport süresi",
+      "Yetersiz mali belgeler",
+      "Yanlış beyan",
     ],
   },
   {

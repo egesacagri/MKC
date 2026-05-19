@@ -55,44 +55,73 @@ export default async function CountryPage({
             <div className="flex items-start gap-6 mb-10">
               <div className="text-6xl md:text-7xl leading-none">{country.flag}</div>
               <div className="flex-1">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-muted">
-                  {country.region}
-                </div>
-                <h1 className="mt-3 font-serif text-5xl md:text-7xl lg:text-[88px] leading-[1.02] tracking-tight text-foreground">
+                {country.region && (
+                  <div className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3">
+                    {country.region}
+                  </div>
+                )}
+                <h1 className="font-serif text-5xl md:text-7xl lg:text-[88px] leading-[1.02] tracking-tight text-foreground">
                   {country.name}
-                  <span className="italic font-light"> vizesi</span>
+                  {country.nonItalicVize ? (
+                    <span className="font-light"> Vizesi</span>
+                  ) : (
+                    <span className="italic font-light"> vizesi</span>
+                  )}
                 </h1>
                 <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl leading-relaxed">
                   {country.description}
                 </p>
               </div>
             </div>
-
-            {/* QUICK STATS */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-foreground/10 border border-foreground/10 mt-14">
-              {[
-                { icon: Clock, label: "İşlem Süresi", value: country.processingTime },
-                { icon: DollarSign, label: "Vize Ücreti", value: country.fee },
-                { icon: TrendingUp, label: "Başarı Oranı", value: country.successRate },
-                { icon: MapPin, label: "Konsolosluk", value: country.consultateCity },
-              ].map((stat, i) => {
-                const Icon = stat.icon;
-                return (
-                  <div key={i} className="bg-background p-6">
-                    <div className="flex items-center gap-2 mb-3">
-                      <Icon className="w-4 h-4 text-foreground/70" />
-                      <span className="text-[10px] uppercase tracking-[0.22em] text-muted">
-                        {stat.label}
-                      </span>
-                    </div>
-                    <div className="font-serif text-2xl md:text-3xl text-foreground tracking-tight">
-                      {stat.value}
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
           </div>
+
+          {/* QUICK STATS — full container width */}
+          {(() => {
+            const stats = [
+              { icon: Clock, label: "İşlem Süresi", value: country.processingTime },
+              { icon: DollarSign, label: "Turistik Vize Ücreti", value: country.fee },
+              ...(country.studentFee ? [{ icon: DollarSign, label: "Öğrenci Vize Ücreti", value: country.studentFee }] : []),
+              { icon: TrendingUp, label: "Başarı Oranı", value: country.successRate },
+              { icon: MapPin, label: country.consultateLabel ?? "Konsolosluk", value: country.consultateCity },
+            ];
+            const colClass = stats.length === 5
+              ? "grid-cols-2 md:grid-cols-5"
+              : "grid-cols-2 md:grid-cols-4";
+            return (
+              <div className={`grid ${colClass} gap-px bg-foreground/10 border border-foreground/10 mt-14`}>
+                {stats.map((stat, i) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div key={i} className="bg-background p-5 flex flex-col">
+                      <div className="flex items-center gap-2 mb-3">
+                        <Icon className="w-4 h-4 text-foreground/70 shrink-0" />
+                        <span className="text-[10px] uppercase tracking-[0.22em] text-muted">
+                          {stat.label}
+                        </span>
+                      </div>
+                      {stat.value.includes("|") ? (
+                        <div className="font-serif text-base md:text-lg text-foreground tracking-tight space-y-1">
+                          {stat.value.split("\n").map((line, j) => {
+                            const [left, right] = line.split("|");
+                            return (
+                              <div key={j} className="flex justify-between gap-4">
+                                <span>{left}</span>
+                                <span>{right}</span>
+                              </div>
+                            );
+                          })}
+                        </div>
+                      ) : (
+                        <div className="font-serif text-base md:text-lg text-foreground tracking-tight leading-relaxed whitespace-pre-line">
+                          {stat.value}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            );
+          })()}
         </Container>
       </section>
 
@@ -141,7 +170,7 @@ export default async function CountryPage({
                   { step: "01", title: "Ön Görüşme", desc: "Dosya hazırlığı planlaması" },
                   { step: "02", title: "Belge Toplama", desc: "Gerekli tüm belgeler hazırlanır" },
                   { step: "03", title: "Başvuru Yapılması", desc: "Resmi başvuru merkezi/online" },
-                  { step: "04", title: "Mülakat/İnceleme", desc: "Konsolosluk tarafından değerlendirme" },
+                  { step: "04", title: "Başvuru Değerlendirilmesi", desc: "Konsolosluk tarafından değerlendirme" },
                 ].map((item, i) => (
                   <div
                     key={i}
@@ -186,62 +215,15 @@ export default async function CountryPage({
                           {issue}
                         </div>
                         <div className="text-xs text-muted mt-1.5 leading-relaxed">
-                          {i === 0 && "Bu sorun başvuruların %30'unda görülür"}
-                          {i === 1 && "Başvuru öncesi mutlaka kontrol edin"}
-                          {i === 2 && "En sık red sebeplerinden biri"}
-                          {i === 3 && "Tüm bilgilerin tutarlı olması önemli"}
+                          {i === 0 && "Vize onayı için ülkeye dönüş niyetinin belgelenmesi kritik önem taşır."}
+                          {i === 1 && "Pasaportunuzun seyahat tarihinden itibaren en az 6 ay geçerli olması zorunludur."}
+                          {i === 2 && "Banka ekstresi, gelir belgesi ve sponsorluk belgeleri eksiksiz sunulmalıdır."}
+                          {i === 3 && "Başvuruda verilen tüm bilgilerin birbiriyle tutarlı ve doğru olması şarttır."}
                         </div>
                       </div>
                     </div>
                   </div>
                 ))}
-              </div>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* CONSULATE INFO */}
-      <section className="py-20 md:py-28 border-t border-foreground/10">
-        <Container>
-          <div className="max-w-5xl grid md:grid-cols-5 gap-12 lg:gap-16">
-            <div className="md:col-span-2">
-              <SectionLabel>Konsolosluk Bilgileri</SectionLabel>
-              <h2 className="mt-5 font-serif text-4xl md:text-5xl tracking-tight text-foreground">
-                {country.consultateCity}
-                <br />
-                <span className="italic font-light">konsolosluğu</span>
-              </h2>
-            </div>
-
-            <div className="md:col-span-3 space-y-8">
-              <div className="pb-8 border-b border-foreground/10">
-                <div className="text-[10px] uppercase tracking-[0.22em] text-muted mb-3">
-                  Adres
-                </div>
-                <div className="flex gap-3 items-start">
-                  <MapPin className="w-5 h-5 text-foreground/70 mt-0.5 shrink-0" />
-                  <div className="text-foreground/85 leading-relaxed">
-                    {country.consultateAddress}
-                  </div>
-                </div>
-              </div>
-
-              <div>
-                <div className="text-[10px] uppercase tracking-[0.22em] text-muted mb-4">
-                  Vize Tipleri
-                </div>
-                <ul className="space-y-3">
-                  {country.visaTypes.map((type, i) => (
-                    <li
-                      key={i}
-                      className="flex items-center gap-3 text-foreground/85"
-                    >
-                      <span className="w-1 h-1 rounded-full bg-foreground/40" />
-                      {type}
-                    </li>
-                  ))}
-                </ul>
               </div>
             </div>
           </div>
@@ -262,8 +244,7 @@ export default async function CountryPage({
             </h2>
 
             <p className="mt-8 text-lg text-muted leading-relaxed">
-              Binlerce başvurucunun başarıyla ülkeye gitmesini sağladık. Sizin de
-              başarı hikayenizin bir parçası olmak istiyoruz.
+              Yüzlerce kişinin vize sürecini başarıyla tamamladık. Sizi de doğru adımlarla hedefinize ulaştırmak için buradayız.
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">

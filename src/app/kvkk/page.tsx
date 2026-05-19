@@ -61,7 +61,7 @@ export default function KvkkPage() {
               </li>
               <li>
                 <strong>E-posta:</strong>{" "}
-                <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a>
+                <a href="mailto:info@mkcvize.com">info@mkcvize.com</a>
               </li>
               <li>
                 <strong>Telefon:</strong>{" "}
@@ -383,7 +383,7 @@ export default function KvkkPage() {
               <li>
                 Güvenli elektronik imza, mobil imza ya da sistemimizde kayıtlı
                 bulunan e-posta adresiniz kullanılarak{" "}
-                <a href="mailto:mkcvize@gmail.com">mkcvize@gmail.com</a> adresine
+                <a href="mailto:info@mkcvize.com">info@mkcvize.com</a> adresine
                 e-posta yoluyla,
               </li>
               <li>KEP adresi tahsis edilmesi hâlinde KEP üzerinden.</li>

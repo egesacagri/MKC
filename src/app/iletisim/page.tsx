@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 const items = [
   { icon: MapPin, label: "Ofis", value: "Ankara" },
   { icon: Phone, label: "Telefon", value: "+90 532 000 0000", href: "tel:+905320000000" },
-  { icon: Mail, label: "E-posta", value: "mkcvize@gmail.com", href: "mailto:mkcvize@gmail.com" },
+  { icon: Mail, label: "E-posta", value: "info@mkcvize.com", href: "mailto:info@mkcvize.com" },
   { icon: Clock, label: "Çalışma Saatleri", value: "Pzt – Cum, 09:00 – 18:00" },
 ];
 
